@@ -1,0 +1,42 @@
+:host{
+    font-size: 0;
+}
+
+:host button{
+    display: inline-block;
+    border: none;
+    font-size: 14px;
+    font-weight: 500;
+    width: 36px;
+    height: 24px;
+    margin: 0 2px;
+    border-radius: 5px;
+}
+:host button.first:before,
+:host button.prev:before,
+:host button.next:before,
+:host button.last:before{
+    font-size: 14px;
+    font-weight: 500;
+}
+
+:host button.first:before{
+    content: '«';
+}
+:host button.prev:before{
+    content: '‹';
+}
+:host button.next:before{
+    content: '›';
+}
+:host button.last:before{
+    content: '»';
+}
+
+:host button.active{
+    background-color: #989898;
+}
+
+:host button:hover{
+    background-color: #CBCBCB;
+}

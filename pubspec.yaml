@@ -1,0 +1,21 @@
+name: ngd_datatable
+description: Data Table for Angular Dart
+version: 0.1.0
+# homepage: https://icemanbsi.github.io
+
+environment:
+  sdk: '>=2.7.0 <3.0.0'
+
+dependencies:
+  angular: ^5.3.0
+  angular_components: ^0.13.0
+  angular_router: ^2.0.0-alpha+19
+  intl: ^0.15.0
+
+dev_dependencies:
+  angular_test: ^2.3.0
+  build_runner: ^1.6.0
+  build_test: ^0.10.8
+  build_web_compilers: ^2.3.0
+  pedantic: ^1.8.0
+  test: ^1.6.0

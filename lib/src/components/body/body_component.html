@@ -1,0 +1,8 @@
+<ngd-datatable-row 
+    *ngFor="let item of data">
+    <ngd-datatable-cell 
+        *ngFor="let column of columns"
+        [column]="column"
+        [item]="item">
+    </ngd-datatable-cell>
+</ngd-datatable-row>

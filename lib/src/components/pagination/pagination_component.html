@@ -1,0 +1,16 @@
+<button [attr.class]="'first'" 
+    [attr.disabled.if]="currentPage == 1"
+    (click)="firstClick"></button>
+<button [attr.class]="'prev'" 
+    [attr.disabled.if]="currentPage == 1"
+    (click)="prevClick"></button>
+<button
+    *ngFor="let page of pages"
+    [attr.class]="currentPage == page ? 'active' : ''"
+    (click)="pageClick(page)">{{ page }}</button>
+<button [attr.class]="'next'" 
+    [attr.disabled.if]="currentPage == totalPages"
+    (click)="nextClick"></button>
+<button [attr.class]="'last'" 
+    [attr.disabled.if]="currentPage == totalPages"
+    (click)="lastClick"></button>

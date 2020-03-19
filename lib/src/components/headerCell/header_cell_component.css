@@ -1,0 +1,42 @@
+:host{
+    display: table-cell;
+    border-bottom: solid 1px #989898;
+    vertical-align: middle;
+}
+:host .th{
+    padding: 0 0.5rem;
+    font-size: 16px;
+    font-weight: 500;
+    color: #989898;
+    display: block;
+    cursor: default;
+    vertical-align: middle;
+    position: relative;
+}
+:host .th:before{
+    content: '';
+    width: 0;
+    height: 100%;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+:host .th.sortable{
+    cursor: pointer;
+}
+:host .th.sortable:after{
+    background:url(data:image/gif;base64,R0lGODlhCwALAJEAAAAAAP///xUVFf///yH5BAEAAAMALAAAAAALAAsAAAIUnC2nKLnT4or00PvyrQwrPzUZshQAOw==) no-repeat center right;
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0.5rem;
+}
+:host .th.sortable.asc:after{
+    background:url(data:image/gif;base64,R0lGODlhCwALAJEAAAAAAP///xUVFf///yH5BAEAAAMALAAAAAALAAsAAAIRnC2nKLnT4or00Puy3rx7VQAAOw==) no-repeat center right;
+}
+:host .th.sortable.desc:after{
+    background:url(data:image/gif;base64,R0lGODlhCwALAJEAAAAAAP///xUVFf///yH5BAEAAAMALAAAAAALAAsAAAIPnI+py+0/hJzz0IruwjsVADs=) no-repeat center right;
+}

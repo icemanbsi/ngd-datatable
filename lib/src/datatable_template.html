@@ -1,0 +1,21 @@
+<ngd-datatable-wrapper>
+    <ngd-datatable-header
+        [columns]="columns"
+        [height]="headerHeight"
+        (sortChange)="colSortChange"
+    ></ngd-datatable-header>
+    <ngd-datatable-progress
+        *ngIf="loading"
+        [attr.style]="'top:' + headerHeight.toString() + 'px'"
+    ></ngd-datatable-progress>
+    <ngd-datatable-body
+        [columns]="columns"
+        [data]="showedData"
+    ></ngd-datatable-body>
+</ngd-datatable-wrapper>
+<ngd-datatable-footer
+    [numberOfData]="count"
+    [pageLimit]="pageLimit"
+    [currentPage]="page"
+    (pageChange)="pageClicked"
+></ngd-datatable-footer>

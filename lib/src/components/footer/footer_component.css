@@ -1,0 +1,28 @@
+:host{
+    display: block;
+    padding: 1rem 0.5rem;
+}
+
+:host:after{
+    content: '';
+    display: block;
+    clear: both;
+}
+
+:host .data-counter{
+    font-size: 12px;
+    color: #989898;
+    float: left;
+    height: 24px;
+    vertical-align: middle;
+}
+:host .data-counter:before{
+    content: '';
+    height: 100%;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+:host ngd-datatable-pagination{
+    float: right;
+}

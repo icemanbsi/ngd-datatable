@@ -1,0 +1,7 @@
+<div [attr.class]="'data-counter'">{{ numberOfShowedData }}</div>
+<ngd-datatable-pagination
+    [numberOfData]="numberOfData"
+    [pageLimit]="pageLimit"
+    [currentPage]="currentPage"
+    (change)="pageClick"
+></ngd-datatable-pagination>

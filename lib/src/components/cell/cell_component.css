@@ -1,0 +1,6 @@
+:host{
+    display: table-cell;
+    padding: 0.5rem 0.5rem;
+    border-bottom: solid 1px #ECECEC;
+    font-size: 14px;
+}
