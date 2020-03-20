@@ -1,0 +1,25 @@
+<section>
+    <h1>Basic Table</h1>
+    <div [attr.class]="'table-wrapper'">
+        <ngd-datatable
+            [columns]="columns"
+            [data]="data"
+        ></ngd-datatable>
+    </div>
+</section>
+<section>
+    <h1>Server Side Table</h1>
+    <div [attr.class]="'table-wrapper'">
+        <ngd-datatable
+            [columns]="columns"
+            [data]="serverSideData"
+            [count]="serverSideDataLength"
+            [pageLimit]="pageLimit"
+            [externalProcessing]="true"
+            [loading]="isLoading"
+            [(page)]="page"
+            (pageClick)="pageClick"
+            (sortClick)="sortClick"
+        ></ngd-datatable>
+    </div>
+</section>
