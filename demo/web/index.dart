@@ -56,7 +56,7 @@ class DemoComponent implements OnInit{
   }
 
   Future<void> fetchData() async {
-    const path = 'http://localhost:8080/data/simple.json';
+    const path = 'https://icemanbsi.github.io/ngd-datatable/data/simple.json';
     try {
       final jsonString = await HttpRequest.getString(path);
       data = json.decode(jsonString);
@@ -69,7 +69,7 @@ class DemoComponent implements OnInit{
 
   Future<void> fetchServerSideData() async{
     isLoading = true;
-    const path = 'http://localhost:8080/data/simple.json';
+    const path = 'https://icemanbsi.github.io/ngd-datatable/data/simple.json';
     try {
       final jsonString = await HttpRequest.getString(path);
       List<dynamic> temp = json.decode(jsonString);
