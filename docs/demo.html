@@ -1,25 +1,177 @@
-<section>
-    <h1>Basic Table</h1>
-    <div [attr.class]="'table-wrapper'">
-        <ngd-datatable
-            [columns]="columns"
-            [data]="data"
-        ></ngd-datatable>
-    </div>
-</section>
-<section>
-    <h1>Server Side Table</h1>
-    <div [attr.class]="'table-wrapper'">
-        <ngd-datatable
-            [columns]="columns"
-            [data]="serverSideData"
-            [count]="serverSideDataLength"
-            [pageLimit]="pageLimit"
-            [externalProcessing]="true"
-            [loading]="isLoading"
-            [(page)]="page"
-            (pageClick)="pageClick"
-            (sortClick)="sortClick"
-        ></ngd-datatable>
-    </div>
-</section>
+<div [attr.class]="'demo'">
+    <section>
+        <h1>ngd-datatable</h1>
+        <p>This plugin is made to display a data table on Angular Dart platform. Currently it support a simple data table with or without server processing.</p>
+    </section>
+    <section>
+        <h1 [attr.id]="'usage'">Usage</h1>
+        <h2>Columns [NgdDataColumn]</h2>
+        <p>This class is used to define a column and how you want to format the data. </p>
+        <table>
+            <thead>
+                <tr>
+                    <th>Attribute</th>
+                    <th>Type</th>
+                    <th>Usage</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>title</td>
+                    <td>String</td>
+                    <td>This attribute is used to define the column title.</td>
+                </tr>
+                <tr>
+                    <td>selector</td>
+                    <td>String</td>
+                    <td>This attribute is used as a key name from the map data. The default value is camel cased title.</td>
+                </tr>
+                <tr>
+                    <td>sort</td>
+                    <td>Enum(none, normal, asc, desc)</td>
+                    <td>Define how you want to sort the data. The default value is none and it would not print the sorting icon on the header.</td>
+                </tr>
+                <tr>
+                    <td>formatter</td>
+                    <td>Function(dynamic)</td>
+                    <td>If you want to format the data before showing it on the table, you can use this function. The parameter of this function is the selected data it self.</td>
+                </tr>
+            </tbody>
+        </table>
+        <h2>Data</h2>
+        <p>Data is based on json array</p>
+        <h2>Code sample</h2>
+        <h3>html</h3>
+        <pre>
+&lt;ngd-datatable 
+    [columns]="columns" 
+    [data]="data"
+    >&lt;/ngd-datatable>
+        </pre>
+        <h3>dart</h3>
+        <pre>
+List&lt;NgdDataColumn> columns = [
+    NgdDataColumn(
+        title: 'Employee Name',
+        sort: ColumnSort.normal
+    ),
+    NgdDataColumn(
+        title: 'Department',
+        sort: ColumnSort.normal
+    ),
+    NgdDataColumn(
+        title: 'Marital Status'
+    ),
+    NgdDataColumn(
+        title: 'Joined Year'
+    ),
+    NgdDataColumn(
+        title: 'Employee Number',
+        sort: ColumnSort.normal
+    ),
+];
+List&lt;dynamic> data = [
+    {
+        "employeeName":"Emerson",
+        "department":"Payroll",
+        "maritalStatus":"Single",
+        "joinedYear":2019,
+        "employeeNumber":76123
+    },
+    {
+        "employeeName":"Tamara",
+        "department":"Customer Service",
+        "maritalStatus":"Married",
+        "joinedYear":2015,
+        "employeeNumber":93040
+    }
+];
+        </pre>
+    </section>
+    <section>
+        <h1>Attributes</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Attribute</th>
+                    <th>Type</th>
+                    <th>Usage</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>[columns]</td>
+                    <td>List&lt;NgdDataColumn&gt;</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>[data]</td>
+                    <td>List&lt;dynamic&gt;</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>[count]</td>
+                    <td>int</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>[pageLimit]</td>
+                    <td>int</td>
+                    <td>default 25</td>
+                </tr>
+                <tr>
+                    <td>[externalProcessing]</td>
+                    <td>bool</td>
+                    <td>default false</td>
+                </tr>
+                <tr>
+                    <td>[loading]</td>
+                    <td>bool</td>
+                    <td>default false</td>
+                </tr>
+                <tr>
+                    <td>[(page)]</td>
+                    <td>int</td>
+                    <td>default 1</td>
+                </tr>
+                <tr>
+                    <td>(pageClick)</td>
+                    <td>Function(int page)</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>(sortClick)</td>
+                    <td>Function(NgdDataColumn column)</td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+    <section>
+        <h1>Examples</h1>
+        <h2 [attr.id]="'basic_table'">Basic Table</h2>
+        <p>Load all the data at once and let the ngd-datatable handle the pagination and sorting.</p>
+        <div [attr.class]="'table-wrapper'">
+            <ngd-datatable
+                [columns]="columns"
+                [data]="data"
+            ></ngd-datatable>
+        </div>
+        <br/>
+        <h2 [attr.id]="'external_processing'">Server Side Table</h2>
+        <p>Load page by page data and handle the pagination and sorting externally e.g. by api call.</p>
+        <div [attr.class]="'table-wrapper'">
+            <ngd-datatable
+                [columns]="columns"
+                [data]="serverSideData"
+                [count]="serverSideDataLength"
+                [pageLimit]="pageLimit"
+                [externalProcessing]="true"
+                [loading]="isLoading"
+                [(page)]="page"
+                (pageClick)="pageClick"
+                (sortClick)="sortClick"
+            ></ngd-datatable>
+        </div>
+    </section>
+</div>
