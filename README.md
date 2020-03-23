@@ -1,4 +1,4 @@
-A DataTable for Angular Dart
+This plugin is made to display a data table on Angular Dart platform. Currently it support a simple data table with or without server processing.
 
 ## Usage
 
