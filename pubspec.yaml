@@ -1,7 +1,7 @@
 name: ngd_datatable
 description: Data Table for Angular Dart
 version: 0.1.0
-# homepage: https://icemanbsi.github.io
+homepage: https://icemanbsi.github.io/ngd-datatable/
 
 environment:
   sdk: '>=2.7.0 <3.0.0'
