@@ -7012,7 +7012,7 @@ b0:function(){var u=0,t=P.ls(-1),s=1,r,q=[],p=this,o,n,m,l
 var $async$b0=P.lA(function(a,b){if(a===1){r=b
 u=s}while(true)switch(u){case 0:s=3
 u=6
-return P.lj(W.kO("http://localhost:8080/data/simple.json"),$async$b0)
+return P.lj(W.kO("https://icemanbsi.github.io/ngd-datatable/data/simple.json"),$async$b0)
 case 6:o=b
 p.b=H.cH(C.x.cL(0,o))
 s=1
@@ -7022,7 +7022,7 @@ case 3:s=2
 l=r
 n=H.a6(l)
 P.jU(n)
-P.jU("Couldn't open http://localhost:8080/data/simple.json")
+P.jU("Couldn't open https://icemanbsi.github.io/ngd-datatable/data/simple.json")
 u=5
 break
 case 2:u=1
@@ -7035,7 +7035,7 @@ var $async$ak=P.lA(function(a,b){if(a===1){q=b
 u=r}while(true)switch(u){case 0:o.y=!0
 r=4
 u=7
-return P.lj(W.kO("http://localhost:8080/data/simple.json"),$async$ak)
+return P.lj(W.kO("https://icemanbsi.github.io/ngd-datatable/data/simple.json"),$async$ak)
 case 7:n=b
 m=H.cH(C.x.cL(0,n))
 o.d=J.aL(m)
@@ -7057,7 +7057,7 @@ case 4:r=3
 f=q
 j=H.a6(f)
 P.jU(j)
-P.jU("Couldn't open http://localhost:8080/data/simple.json")
+P.jU("Couldn't open https://icemanbsi.github.io/ngd-datatable/data/simple.json")
 u=6
 break
 case 3:u=2
