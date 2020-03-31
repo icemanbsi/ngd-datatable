@@ -20,14 +20,6 @@ class NgdDataTableCellComponent {
   dynamic item;
 
   String get formattedContent {
-    if (item is Map && (item as Map).containsKey(column.selector)) {
-      if (column.formatter != null) {
-        return column.formatter(item[column.selector]);
-      } else {
-        return item[column.selector].toString();
-      }
-    } else {
-      return '';
-    }
+    return column.getContent(item);
   }
 }

@@ -49,4 +49,20 @@ class NgdDataColumn {
 
     return result;
   }
+
+  String getContent(dynamic item){
+    if (item is Map && item.containsKey(selector)) {
+      if (formatter != null) {
+        return formatter(item);
+      } else {
+        return item[selector].toString();
+      }
+    } else {
+      if (formatter != null) {
+        return formatter(item);
+      } else {
+        return '';
+      }
+    }
+  }
 }

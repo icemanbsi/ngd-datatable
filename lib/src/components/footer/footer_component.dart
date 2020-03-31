@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:core';
+import 'dart:math';
 import 'package:angular/angular.dart';
 import 'package:angular/core.dart';
 import '../pagination/pagination_component.dart';
@@ -33,7 +34,7 @@ class NgdDataTableFooterComponent {
     if (currentPage != null && pageLimit != null) {
       var formatter = NumberFormat.decimalPattern();
       var start = formatter.format((currentPage - 1) * pageLimit + 1);
-      var end = formatter.format(currentPage * pageLimit);
+      var end = formatter.format(min(numberOfData, currentPage * pageLimit));
       var total = formatter.format(numberOfData);
       return 'showing data ${start}-${end} of ${total}';
     }

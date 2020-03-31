@@ -19,8 +19,11 @@ import 'index.template.dart' show DemoComponentNgFactory;
 )
 class DemoComponent implements OnInit{
   List<NgdDataColumn> columns;
+  List<NgdDataColumn> serverSideColumns;
+  List<NgdDataColumn> employeeColumns;
   List<dynamic> data = [];
   List<dynamic> serverSideData = [];
+  List<Employee> employeeData = [];
   int serverSideDataLength = 0;
   int pageLimit = 15;
   int page = 1;
@@ -50,6 +53,32 @@ class DemoComponent implements OnInit{
         sort: ColumnSort.normal
       ),
     ];
+    serverSideColumns = List.from(columns);
+    employeeColumns = [
+      NgdDataColumn(
+        title: 'Employee Name',
+        sort: ColumnSort.normal,
+        formatter: (item) => (item as Employee).name
+      ),
+      NgdDataColumn(
+        title: 'Department',
+        sort: ColumnSort.normal,
+        formatter: (item) => (item as Employee).department
+      ),
+      NgdDataColumn(
+        title: 'Marital Status',
+        formatter: (item) => (item as Employee).maritalStatus
+      ),
+      NgdDataColumn(
+        title: 'Joined Year',
+        formatter: (item) => (item as Employee).joinedYear.toString()
+      ),
+      NgdDataColumn(
+        title: 'Employee Number',
+        sort: ColumnSort.normal,
+        formatter: (item) => (item as Employee).number
+      ),
+    ];
 
     fetchData();
     fetchServerSideData();
@@ -60,6 +89,10 @@ class DemoComponent implements OnInit{
     try {
       final jsonString = await HttpRequest.getString(path);
       data = json.decode(jsonString);
+      employeeData = [];
+      data.forEach((item){
+        employeeData.add(Employee.fromJson(item));
+      });
     } catch (e) {
       // The GET request failed. Handle the error.
       print(e);
@@ -108,4 +141,20 @@ class DemoComponent implements OnInit{
 
 void main() {
   runApp(DemoComponentNgFactory);
+}
+
+class Employee{
+  String name;
+  String department;
+  String maritalStatus;
+  int joinedYear;
+  String number;
+
+  Employee.fromJson(json){
+    name = json['employeeName'];
+    department = json['department'];
+    maritalStatus = json['maritalStatus'];
+    joinedYear = int.parse(json['joinedYear'].toString());
+    number = json['employeeNumber'].toString();
+  }
 }

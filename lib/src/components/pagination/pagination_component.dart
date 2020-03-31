@@ -33,7 +33,7 @@ class NgdDataTablePaginationComponent {
   final _onChange = StreamController<int>.broadcast();
 
   List<int> get pages {
-    List<int> result = [];
+    var result = <int>[];
     if (totalPages <= 5) {
       for (var i = 1; i <= totalPages; i++) {
         result.add(i);

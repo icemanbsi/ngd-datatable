@@ -112,9 +112,9 @@ class NgdDataTableComponent {
       } else {
         _data.sort((a, b) {
           if (column.sort == ColumnSort.asc) {
-            return a[column.selector].compareTo(b[column.selector]);
+            return column.getContent(a).compareTo(column.getContent(b));
           } else {
-            return a[column.selector].compareTo(b[column.selector]) * -1;
+            return column.getContent(a).compareTo(column.getContent(b)) * -1;
           }
         });
       }
