@@ -34,7 +34,7 @@
                 <tr>
                     <td>formatter</td>
                     <td>Function(dynamic)</td>
-                    <td>If you want to format the data before showing it on the table, you can use this function. The parameter of this function is the selected data it self.</td>
+                    <td>If you want to format the data before showing it on the table, you can use this function. The parameter of this function is not just a single data but the entire row data. With this function you can event process a list of non json object as the input of ngd_datatable.</td>
                 </tr>
             </tbody>
         </table>
@@ -162,7 +162,7 @@ List&lt;dynamic> data = [
         <p>Load page by page data and handle the pagination and sorting externally e.g. by api call.</p>
         <div [attr.class]="'table-wrapper'">
             <ngd-datatable
-                [columns]="columns"
+                [columns]="serverSideColumns"
                 [data]="serverSideData"
                 [count]="serverSideDataLength"
                 [pageLimit]="pageLimit"
@@ -171,6 +171,15 @@ List&lt;dynamic> data = [
                 [(page)]="page"
                 (pageClick)="pageClick"
                 (sortClick)="sortClick"
+            ></ngd-datatable>
+        </div>
+        <h2 [attr.id]="'basic_table'">Basic Table with Object Data Type</h2>
+        <p>Load non JSON Object data type without formatting into JSON Object. In this example we are using List&lt;Employee> as the data</p>
+        <div [attr.class]="'table-wrapper'">
+            <ngd-datatable
+                [columns]="employeeColumns"
+                [data]="employeeData"
+                [pageLimit]="15"
             ></ngd-datatable>
         </div>
     </section>
