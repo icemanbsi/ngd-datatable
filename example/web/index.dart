@@ -78,6 +78,10 @@ class DemoComponent implements OnInit{
         sort: ColumnSort.normal,
         formatter: (item) => (item as Employee).number
       ),
+      NgdDataColumn(
+        title: 'Actions',
+        formatter: (item) => '<a href="#" data-name="' + (item as Employee).name.toString() + '">Click Here</a>'
+      )
     ];
 
     fetchData();
