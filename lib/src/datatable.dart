@@ -98,7 +98,7 @@ class NgdDataTableComponent {
       }
     });
     if(isSearchable){
-      top * 2;
+      top *= 2;
     }
     return top;
   }
@@ -125,7 +125,6 @@ class NgdDataTableComponent {
 
   void colSortChange(NgdDataColumn column) {
     if (!externalProcessing) {
-      loading = true;
       columns.forEach((col) {
         if (column != col && col.sort != ColumnSort.none) {
           col.sort = ColumnSort.normal;
@@ -137,14 +136,12 @@ class NgdDataTableComponent {
       else{
         sort();
       }
-      loading = false;
     }
     _onSortChange.add(column);
   }
 
   void colFilterChange(NgdDataColumn column) {
     if (!externalProcessing) {
-      loading = true;
       _data = [];
       _originalData.forEach((data){
         var isMatch = true;
@@ -160,7 +157,6 @@ class NgdDataTableComponent {
         }
       });
       sort();
-      loading = false;
     }
     _onFilterChange.add(column);
   }

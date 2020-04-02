@@ -1,3 +1,7 @@
+## 0.1.6
+- Bug fixing loading bar
+- Update documentation and example
+
 ## 0.1.5
 - Bug fixing server side data
 
