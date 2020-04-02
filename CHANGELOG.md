@@ -1,3 +1,6 @@
+## 0.1.4
+- Adding support for filtering by column
+
 ## 0.1.3
 - Adding support for html inside column formatter
 

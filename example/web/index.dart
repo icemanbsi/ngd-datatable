@@ -21,6 +21,7 @@ class DemoComponent implements OnInit{
   List<NgdDataColumn> columns;
   List<NgdDataColumn> serverSideColumns;
   List<NgdDataColumn> employeeColumns;
+  List<NgdDataColumn> filterColumns;
   List<dynamic> data = [];
   List<dynamic> serverSideData = [];
   List<Employee> employeeData = [];
@@ -82,6 +83,38 @@ class DemoComponent implements OnInit{
         title: 'Actions',
         formatter: (item) => '<a href="#" data-name="' + (item as Employee).name.toString() + '">Click Here</a>'
       )
+    ];
+    filterColumns = [
+      NgdDataColumn(
+        title: 'Employee Name',
+        sort: ColumnSort.asc,
+        searchable: true,
+      ),
+      NgdDataColumn(
+        title: 'Department',
+        sort: ColumnSort.normal
+      ),
+      NgdDataColumn(
+        title: 'Marital Status',
+        searchable: true,
+        filter: 'Married',
+        filterOptions: {
+          '' : 'All',
+          'Single' : 'Single',
+          'Married' : 'Married',
+          'Divorced': 'Divorced',
+          'Common-Law' : 'Common-Law'
+        }
+      ),
+      NgdDataColumn(
+        title: 'Joined Year',
+        searchable: true,
+        filter: '2000'
+      ),
+      NgdDataColumn(
+        title: 'Employee Number',
+        sort: ColumnSort.normal
+      ),
     ];
 
     fetchData();

@@ -3,6 +3,7 @@
         [columns]="columns"
         [height]="headerHeight"
         (sortChange)="colSortChange"
+        (filterChange)="colFilterChange"
     ></ngd-datatable-header>
     <ngd-datatable-progress
         *ngIf="loading"

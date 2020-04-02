@@ -1,0 +1,38 @@
+:host{
+    display: table-cell;
+    vertical-align: middle;
+}
+
+:host input, 
+:host select {
+    flex: 1;
+    margin: 0.25rem 0.5rem;
+    border: solid 1px #CDCDCD;
+    border-radius: 5px;
+    background: #FFFFFF;
+    padding: 0.25rem 0.5rem;
+    font-size: 14px;
+}
+
+:host input:focus, 
+:host select:focus {
+    border: solid 2px #989898;
+}
+
+:host .th{
+    /* padding: 0.5rem; */
+    font-size: 16px;
+    font-weight: 500;
+    color: #989898;
+    display: flex;
+    cursor: default;
+    vertical-align: middle;
+    position: relative;
+}
+/* :host .th:before{
+    content: '';
+    width: 0;
+    height: 100%;
+    display: inline-block;
+    vertical-align: middle;
+} */

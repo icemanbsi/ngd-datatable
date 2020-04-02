@@ -32,7 +32,7 @@ class NgdDataTableComponent {
   @Input()
   set data(List<dynamic> newData) {
     _originalData = newData;
-    _data = List<dynamic>.from(newData);
+    colFilterChange(null);
   }
 
   List<dynamic> _originalData;
@@ -60,7 +60,7 @@ class NgdDataTableComponent {
     _count = value;
   }
 
-  int get count => _count ?? _originalData.length;
+  int get count => _count ?? _data.length;
   int _count;
 
   @Input()
@@ -79,6 +79,11 @@ class NgdDataTableComponent {
   @Output()
   Stream<NgdDataColumn> get sortClick => _onSortChange.stream;
   final _onSortChange = StreamController<NgdDataColumn>.broadcast();
+
+  @Output()
+  Stream<NgdDataColumn> get filterChange => _onFilterChange.stream;
+  final _onFilterChange = StreamController<NgdDataColumn>.broadcast();
+
 
   List<dynamic> get showedData {
     if (externalProcessing) {
@@ -109,16 +114,50 @@ class NgdDataTableComponent {
       });
       if (column.sort == ColumnSort.normal) {
         _data = List<dynamic>.from(_originalData);
-      } else {
-        _data.sort((a, b) {
-          if (column.sort == ColumnSort.asc) {
-            return column.getContent(a).compareTo(column.getContent(b));
-          } else {
-            return column.getContent(a).compareTo(column.getContent(b)) * -1;
-          }
-        });
+      }
+      else{
+        sort();
       }
     }
     _onSortChange.add(column);
+  }
+
+  void colFilterChange(NgdDataColumn column) {
+    if (!externalProcessing) {
+      _data = [];
+      _originalData.forEach((data){
+        var isMatch = true;
+        columns.forEach((col) {
+          if(col.searchable && col.filter != null && col.filter.isNotEmpty){
+            if(!col.getContent(data).toLowerCase().contains(col.filter.toLowerCase())){
+              isMatch = false;
+            }
+          }
+        });
+        if(isMatch){
+          _data.add(data);
+        }
+      });
+      sort();
+    }
+    _onFilterChange.add(column);
+  }
+
+  void sort(){
+    NgdDataColumn column;
+    columns.forEach((col) {
+      if (col.sort == ColumnSort.asc || col.sort == ColumnSort.desc) {
+        column = col;
+      }
+    });
+    if (column != null) {
+      _data.sort((a, b) {
+        if (column.sort == ColumnSort.asc) {
+          return column.getContent(a).compareTo(column.getContent(b));
+        } else {
+          return column.getContent(a).compareTo(column.getContent(b)) * -1;
+        }
+      });
+    }
   }
 }

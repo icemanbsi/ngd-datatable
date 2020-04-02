@@ -5,6 +5,9 @@ class NgdDataColumn {
   String selector;
   String Function(dynamic) formatter;
   ColumnSort sort;
+  bool searchable;
+  String filter;
+  Map<String, String> filterOptions;
 
   @override
   bool operator ==(other) {
@@ -17,11 +20,17 @@ class NgdDataColumn {
       {String title,
       String selector,
       ColumnSort sort = ColumnSort.none,
-      String Function(dynamic) formatter}) {
+      String Function(dynamic) formatter,
+      bool searchable = false,
+      String filter,
+      Map<String, String> filterOptions}) {
     this.title = title;
     this.selector = selector;
     this.formatter = formatter;
     this.sort = sort;
+    this.searchable = searchable;
+    this.filter = filter;
+    this.filterOptions = filterOptions;
 
     if (this.selector == null || this.selector.isEmpty) {
       this.selector = toCamelCase(title);

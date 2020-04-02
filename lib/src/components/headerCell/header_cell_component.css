@@ -1,6 +1,5 @@
 :host{
     display: table-cell;
-    border-bottom: solid 1px #989898;
     vertical-align: middle;
 }
 :host .th{

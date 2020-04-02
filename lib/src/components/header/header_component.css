@@ -1,3 +1,8 @@
 :host{
     display: table-header-group;
 }
+
+:host ngd-datatable-row:last-child ngd-datatable-header-cell, 
+:host ngd-datatable-row:last-child ngd-datatable-filter-cell {
+    border-bottom: solid 1px #989898;
+}

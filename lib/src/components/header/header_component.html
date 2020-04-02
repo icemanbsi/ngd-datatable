@@ -6,3 +6,11 @@
         (sortChange)="columnSortChange">
     </ngd-datatable-header-cell>
 </ngd-datatable-row>
+<ngd-datatable-row *ngIf="isShowColumnFilter">
+    <ngd-datatable-filter-cell 
+        *ngFor="let column of columns"
+        [column]="column"
+        [height]="height"
+        (filterChange)="columnFilterChange">
+    </ngd-datatable-filter-cell>
+</ngd-datatable-row>
