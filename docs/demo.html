@@ -36,6 +36,21 @@
                     <td>Function(dynamic)</td>
                     <td>If you want to format the data before showing it on the table, you can use this function. The parameter of this function is not just a single data but the entire row data. With this function you can event process a list of non json object as the input of ngd_datatable.</td>
                 </tr>
+                <tr>
+                    <td>searchable</td>
+                    <td>bool</td>
+                    <td>Define if the column is searchable. Default value is false.</td>
+                </tr>
+                <tr>
+                    <td>filter</td>
+                    <td>String</td>
+                    <td>Filter value. Can be use to set default search value and get the current search value</td>
+                </tr>
+                <tr>
+                    <td>filterOptions</td>
+                    <td>Map&lt;String, String></td>
+                    <td>The default search column is input text. If you want to turn it into dropdown, you can use this attribute to set the options.</td>
+                </tr>
             </tbody>
         </table>
         <h2>Data</h2>
@@ -142,7 +157,12 @@ List&lt;dynamic> data = [
                 <tr>
                     <td>(sortClick)</td>
                     <td>Function(NgdDataColumn column)</td>
-                    <td></td>
+                    <td>This function would be called when a sortable header clicked and when initialize component with column = null.</td>
+                </tr>
+                <tr>
+                    <td>(filterChange)</td>
+                    <td>Function(NgdDataColumn column)</td>
+                    <td>This function would be called when a searchable column filter changed and when initialize component with column = null.</td>
                 </tr>
             </tbody>
         </table>
@@ -173,6 +193,7 @@ List&lt;dynamic> data = [
                 (sortClick)="sortClick"
             ></ngd-datatable>
         </div>
+        <br/>
         <h2 [attr.id]="'basic_table'">Basic Table with Object Data Type</h2>
         <p>Load non JSON Object data type without formatting into JSON Object. In this example we are using List&lt;Employee> as the data</p>
         <div [attr.class]="'table-wrapper'">
@@ -182,5 +203,14 @@ List&lt;dynamic> data = [
                 [pageLimit]="15"
             ></ngd-datatable>
         </div>
+        <h2 [attr.id]="'basic_table'">Basic Table with Column Filter</h2>
+        <p>Load all the data at once and let the ngd-datatable handle the pagination and sorting.</p>
+        <div [attr.class]="'table-wrapper'">
+            <ngd-datatable
+                [columns]="filterColumns"
+                [data]="data"
+            ></ngd-datatable>
+        </div>
+        <br/>
     </section>
 </div>
