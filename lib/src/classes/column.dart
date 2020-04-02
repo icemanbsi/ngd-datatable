@@ -44,12 +44,14 @@ class NgdDataColumn {
       if (text_r.isNotEmpty) {
         var i = 0;
         text_r.forEach((word) {
-          if (i == 0) {
-            text_r[i++] = word.substring(0, 1).toLowerCase() +
-                ((word.length > 1) ? word.substring(1) : '');
-          } else {
-            text_r[i++] = word.substring(0, 1).toUpperCase() +
-                ((word.length > 1) ? word.substring(1) : '');
+          if(word.isNotEmpty){
+            if (i == 0) {
+              text_r[i++] = word.substring(0, 1).toLowerCase() +
+                  ((word.length > 1) ? word.substring(1) : '');
+            } else {
+              text_r[i++] = word.substring(0, 1).toUpperCase() +
+                  ((word.length > 1) ? word.substring(1) : '');
+            }
           }
         });
       }

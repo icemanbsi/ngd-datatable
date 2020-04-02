@@ -1,3 +1,6 @@
+## 0.1.5
+- Bug fixing server side data
+
 ## 0.1.4
 - Adding support for filtering by column
 

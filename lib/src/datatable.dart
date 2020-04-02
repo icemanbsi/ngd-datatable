@@ -32,7 +32,12 @@ class NgdDataTableComponent {
   @Input()
   set data(List<dynamic> newData) {
     _originalData = newData;
-    colFilterChange(null);
+    if(externalProcessing){
+      _data = List<dynamic>.from(_originalData);
+    }
+    else{
+      colFilterChange(null);
+    }
   }
 
   List<dynamic> _originalData;
@@ -84,6 +89,19 @@ class NgdDataTableComponent {
   Stream<NgdDataColumn> get filterChange => _onFilterChange.stream;
   final _onFilterChange = StreamController<NgdDataColumn>.broadcast();
 
+  int get progressTop {
+    var top = headerHeight;
+    var isSearchable = false;
+    columns.forEach((col){
+      if(col.searchable){
+        isSearchable = true;
+      }
+    });
+    if(isSearchable){
+      top * 2;
+    }
+    return top;
+  }
 
   List<dynamic> get showedData {
     if (externalProcessing) {
@@ -107,6 +125,7 @@ class NgdDataTableComponent {
 
   void colSortChange(NgdDataColumn column) {
     if (!externalProcessing) {
+      loading = true;
       columns.forEach((col) {
         if (column != col && col.sort != ColumnSort.none) {
           col.sort = ColumnSort.normal;
@@ -118,12 +137,14 @@ class NgdDataTableComponent {
       else{
         sort();
       }
+      loading = false;
     }
     _onSortChange.add(column);
   }
 
   void colFilterChange(NgdDataColumn column) {
     if (!externalProcessing) {
+      loading = true;
       _data = [];
       _originalData.forEach((data){
         var isMatch = true;
@@ -139,6 +160,7 @@ class NgdDataTableComponent {
         }
       });
       sort();
+      loading = false;
     }
     _onFilterChange.add(column);
   }

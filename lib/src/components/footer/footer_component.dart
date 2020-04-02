@@ -33,9 +33,12 @@ class NgdDataTableFooterComponent {
   String get numberOfShowedData {
     if (currentPage != null && pageLimit != null) {
       var formatter = NumberFormat.decimalPattern();
-      var start = formatter.format((currentPage - 1) * pageLimit + 1);
+      var start = formatter.format(max(0, (currentPage - 1) * pageLimit + 1));
       var end = formatter.format(min(numberOfData, currentPage * pageLimit));
       var total = formatter.format(numberOfData);
+      if(numberOfData == 0){
+        start = '0';
+      }
       return 'showing data ${start}-${end} of ${total}';
     }
     return '';

@@ -7,7 +7,7 @@
     ></ngd-datatable-header>
     <ngd-datatable-progress
         *ngIf="loading"
-        [attr.style]="'top:' + headerHeight.toString() + 'px'"
+        [attr.style]="'top:' + progressTop.toString() + 'px'"
     ></ngd-datatable-progress>
     <ngd-datatable-body
         [columns]="columns"
