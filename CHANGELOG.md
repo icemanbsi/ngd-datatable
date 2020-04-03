@@ -1,3 +1,6 @@
+## 0.1.7
+- Adding support for dynamically add a component into the table
+
 ## 0.1.6
 - Bug fixing loading bar
 - Update documentation and example

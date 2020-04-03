@@ -22,6 +22,7 @@
 
 :host .th.sortable{
     cursor: pointer;
+    padding-right: 1.5rem;
 }
 :host .th.sortable:after{
     background:url(data:image/gif;base64,R0lGODlhCwALAJEAAAAAAP///xUVFf///yH5BAEAAAMALAAAAAALAAsAAAIUnC2nKLnT4or00PvyrQwrPzUZshQAOw==) no-repeat center right;

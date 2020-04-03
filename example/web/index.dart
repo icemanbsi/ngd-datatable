@@ -6,7 +6,7 @@ import 'package:angular/angular.dart';
 import 'package:ngd_datatable/ngd_datatable.dart';
 
 // ignore: uri_has_not_been_generated 
-import 'index.template.dart' show DemoComponentNgFactory;
+import 'index.template.dart' show DemoComponentNgFactory, ActionComponentNgFactory;
 
 
 @Component(
@@ -81,7 +81,12 @@ class DemoComponent implements OnInit{
       ),
       NgdDataColumn(
         title: 'Actions',
-        formatter: (item) => '<a href="#" data-name="' + (item as Employee).name.toString() + '">Click Here</a>'
+        component: ActionComponentNgFactory,
+        initComponent: (componentRef, item){
+          if(componentRef.instance is ActionComponent){
+            componentRef.instance.item = item;
+          }
+        }
       )
     ];
     filterColumns = [
@@ -173,6 +178,24 @@ class DemoComponent implements OnInit{
     sortCol = column.selector;
     sortDir = column.sort;
     fetchServerSideData();
+  }
+}
+
+@Component(
+  selector: 'act',
+  template: '''
+    <a href="javascript:;" (click)="clicked">{{ item.name }} Detail</a>
+  ''',
+  directives: [
+    coreDirectives
+  ]
+)
+class ActionComponent{
+  @Input()
+  dynamic item;
+
+  void clicked(){
+    print((item as Employee).name);
   }
 }
 

@@ -37,6 +37,16 @@
                     <td>If you want to format the data before showing it on the table, you can use this function. The parameter of this function is not just a single data but the entire row data. With this function you can event process a list of non json object as the input of ngd_datatable.</td>
                 </tr>
                 <tr>
+                    <td>component</td>
+                    <td>ComponentFactory</td>
+                    <td>Sometimes you need to place a component instead of just a string. This attribute is allowing you to do so. It will ignore the formatter function the value is not null.</td>
+                </tr>
+                <tr>
+                    <td>initComponent</td>
+                    <td>Function(ComponentRef, dynamic)</td>
+                    <td>To initialize the component with some specific parameter, you can use this function.</td>
+                </tr>
+                <tr>
                     <td>searchable</td>
                     <td>bool</td>
                     <td>Define if the column is searchable. Default value is false.</td>

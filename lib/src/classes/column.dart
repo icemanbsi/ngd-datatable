@@ -1,9 +1,13 @@
+import 'package:angular/angular.dart';
+
 enum ColumnSort { none, normal, asc, desc }
 
 class NgdDataColumn {
   String title;
   String selector;
   String Function(dynamic) formatter;
+  ComponentFactory component;
+  Function(ComponentRef, dynamic) initComponent;
   ColumnSort sort;
   bool searchable;
   String filter;
@@ -21,12 +25,16 @@ class NgdDataColumn {
       String selector,
       ColumnSort sort = ColumnSort.none,
       String Function(dynamic) formatter,
+      ComponentFactory component,
+      Function(ComponentRef, dynamic) initComponent,
       bool searchable = false,
       String filter,
       Map<String, String> filterOptions}) {
     this.title = title;
     this.selector = selector;
     this.formatter = formatter;
+    this.component = component;
+    this.initComponent = initComponent;
     this.sort = sort;
     this.searchable = searchable;
     this.filter = filter;
@@ -62,18 +70,23 @@ class NgdDataColumn {
   }
 
   String getContent(dynamic item){
-    if (item is Map && item.containsKey(selector)) {
-      if (formatter != null) {
-        return formatter(item);
+    if (component == null){
+      if (item is Map && item.containsKey(selector)) {
+        if (formatter != null) {
+          return formatter(item);
+        } else {
+          return item[selector].toString();
+        }
       } else {
-        return item[selector].toString();
+        if (formatter != null) {
+          return formatter(item);
+        } else {
+          return '';
+        }
       }
-    } else {
-      if (formatter != null) {
-        return formatter(item);
-      } else {
-        return '';
-      }
+    }
+    else{
+      return '';
     }
   }
 }
