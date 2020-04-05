@@ -42,6 +42,14 @@ class NgdDataTableHeaderComponent {
     return result;
   }
 
+  String getStyles(NgdDataColumn column){
+    var _styles = '';
+    if(column.width != null){
+      _styles += ' width: ' + column.width;
+    }
+    return _styles;
+  }
+
   void columnSortChange(NgdDataColumn column) {
     _onSortChange.add(column);
   }

@@ -30,6 +30,18 @@ class NgdDataTableCellComponent implements OnInit {
     return column.getContent(item);
   }
 
+  String get classes {
+    var _classes = '';
+    switch (column.alignment) {
+      case CellAlignment.left: _classes += ' text-left'; break;
+      case CellAlignment.center: _classes += ' text-center'; break;
+      case CellAlignment.right: _classes += ' text-right'; break;
+      case CellAlignment.justify: _classes += ' text-justify'; break;
+      default:
+    }
+    return _classes;
+  }
+
   @override
   void ngOnInit() {
     if (column.component != null){

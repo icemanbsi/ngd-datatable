@@ -40,3 +40,15 @@
 :host .th.sortable.desc:after{
     background:url(data:image/gif;base64,R0lGODlhCwALAJEAAAAAAP///xUVFf///yH5BAEAAAMALAAAAAALAAsAAAIPnI+py+0/hJzz0IruwjsVADs=) no-repeat center right;
 }
+:host .text-left{
+    text-align: left;
+}
+:host .text-center{
+    text-align: center;
+}
+:host .text-right{
+    text-align: right;
+}
+:host .text-justify{
+    text-align: justify;
+}

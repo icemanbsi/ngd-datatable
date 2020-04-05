@@ -36,7 +36,23 @@ class NgdDataTableHeaderCellComponent {
       _classes += ' desc';
     }
 
+    switch (column.headerAlignment) {
+      case CellAlignment.left: _classes += ' text-left'; break;
+      case CellAlignment.center: _classes += ' text-center'; break;
+      case CellAlignment.right: _classes += ' text-right'; break;
+      case CellAlignment.justify: _classes += ' text-justify'; break;
+      default:
+    }
+
     return _classes;
+  }
+
+  String get styles {
+    var _styles = '';
+    if(height != null){
+      _styles += ' height: ' + height.toString() + 'px;';
+    }
+    return _styles;
   }
 
   void headerClick() {

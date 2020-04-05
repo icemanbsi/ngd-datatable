@@ -1,6 +1,7 @@
 <ngd-datatable-row>
     <ngd-datatable-header-cell 
         *ngFor="let column of columns"
+        [attr.style]="getStyles(column)"
         [column]="column"
         [height]="height"
         (sortChange)="columnSortChange">

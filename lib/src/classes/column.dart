@@ -1,6 +1,7 @@
 import 'package:angular/angular.dart';
 
 enum ColumnSort { none, normal, asc, desc }
+enum CellAlignment { left, center, right, justify }
 
 class NgdDataColumn {
   String title;
@@ -12,6 +13,9 @@ class NgdDataColumn {
   bool searchable;
   String filter;
   Map<String, String> filterOptions;
+  CellAlignment alignment;
+  CellAlignment headerAlignment;
+  String width;
 
   @override
   bool operator ==(other) {
@@ -29,7 +33,10 @@ class NgdDataColumn {
       Function(ComponentRef, dynamic) initComponent,
       bool searchable = false,
       String filter,
-      Map<String, String> filterOptions}) {
+      Map<String, String> filterOptions,
+      CellAlignment alignment,
+      CellAlignment headerAlignment,
+      String width}) {
     this.title = title;
     this.selector = selector;
     this.formatter = formatter;
@@ -39,6 +46,9 @@ class NgdDataColumn {
     this.searchable = searchable;
     this.filter = filter;
     this.filterOptions = filterOptions;
+    this.alignment = alignment;
+    this.headerAlignment = headerAlignment;
+    this.width = width;
 
     if (this.selector == null || this.selector.isEmpty) {
       this.selector = toCamelCase(title);

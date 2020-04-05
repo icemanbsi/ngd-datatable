@@ -1,3 +1,6 @@
+## 0.1.8
+- Adding Alignment and column width
+
 ## 0.1.7
 - Adding support for dynamically add a component into the table
 

@@ -4,3 +4,15 @@
     border-bottom: solid 1px #ECECEC;
     font-size: 14px;
 }
+:host .text-left{
+    text-align: left;
+}
+:host .text-center{
+    text-align: center;
+}
+:host .text-right{
+    text-align: right;
+}
+:host .text-justify{
+    text-align: justify;
+}

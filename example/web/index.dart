@@ -64,14 +64,21 @@ class DemoComponent implements OnInit{
       NgdDataColumn(
         title: 'Department',
         sort: ColumnSort.normal,
+        headerAlignment: CellAlignment.left,
+        alignment: CellAlignment.left,
         formatter: (item) => (item as Employee).department
       ),
       NgdDataColumn(
         title: 'Marital Status',
+        headerAlignment: CellAlignment.center,
+        alignment: CellAlignment.center,
         formatter: (item) => (item as Employee).maritalStatus
       ),
       NgdDataColumn(
         title: 'Joined Year',
+        headerAlignment: CellAlignment.right,
+        alignment: CellAlignment.right,
+        width: '70px',
         formatter: (item) => (item as Employee).joinedYear.toString()
       ),
       NgdDataColumn(
@@ -82,6 +89,8 @@ class DemoComponent implements OnInit{
       NgdDataColumn(
         title: 'Actions',
         component: ActionComponentNgFactory,
+        headerAlignment: CellAlignment.right,
+        alignment: CellAlignment.right,
         initComponent: (componentRef, item){
           if(componentRef.instance is ActionComponent){
             componentRef.instance.item = item;
