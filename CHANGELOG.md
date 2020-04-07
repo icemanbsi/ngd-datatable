@@ -1,3 +1,9 @@
+## 0.1.9+2
+- Bug fixing flex and column width
+
+## 0.1.9+1
+- Bug fixing flex and column width
+
 ## 0.1.9
 - Change table style to flex
 - Adding flexWidth to set column width relatively
