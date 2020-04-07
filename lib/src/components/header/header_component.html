@@ -10,6 +10,7 @@
 <ngd-datatable-row *ngIf="isShowColumnFilter">
     <ngd-datatable-filter-cell 
         *ngFor="let column of columns"
+        [attr.style]="getStyles(column)"
         [column]="column"
         [height]="height"
         (filterChange)="columnFilterChange">

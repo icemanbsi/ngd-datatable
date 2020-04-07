@@ -1,3 +1,7 @@
+## 0.1.9
+- Change table style to flex
+- Adding flexWidth to set column width relatively
+
 ## 0.1.8
 - Adding Alignment and column width
 

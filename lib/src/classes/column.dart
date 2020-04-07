@@ -15,7 +15,8 @@ class NgdDataColumn {
   Map<String, String> filterOptions;
   CellAlignment alignment;
   CellAlignment headerAlignment;
-  String width;
+  int width;
+  double flexWidth;
 
   @override
   bool operator ==(other) {
@@ -36,7 +37,8 @@ class NgdDataColumn {
       Map<String, String> filterOptions,
       CellAlignment alignment,
       CellAlignment headerAlignment,
-      String width}) {
+      int width,
+      double flexWidth}) {
     this.title = title;
     this.selector = selector;
     this.formatter = formatter;
@@ -49,6 +51,7 @@ class NgdDataColumn {
     this.alignment = alignment;
     this.headerAlignment = headerAlignment;
     this.width = width;
+    this.flexWidth = flexWidth;
 
     if (this.selector == null || this.selector.isEmpty) {
       this.selector = toCamelCase(title);

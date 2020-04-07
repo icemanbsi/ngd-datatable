@@ -1,5 +1,6 @@
 :host{
-    display: table-cell;
+    display: inline-block;
+    flex: 1;
     vertical-align: middle;
 }
 
@@ -12,6 +13,7 @@
     background: #FFFFFF;
     padding: 0.25rem 0.5rem;
     font-size: 14px;
+    min-width: 0;
 }
 
 :host input:focus, 

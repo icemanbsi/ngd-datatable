@@ -59,7 +59,8 @@ class DemoComponent implements OnInit{
       NgdDataColumn(
         title: 'Employee Name',
         sort: ColumnSort.normal,
-        formatter: (item) => (item as Employee).name
+        formatter: (item) => (item as Employee).name,
+        flexWidth: 2
       ),
       NgdDataColumn(
         title: 'Department',
@@ -78,7 +79,7 @@ class DemoComponent implements OnInit{
         title: 'Joined Year',
         headerAlignment: CellAlignment.right,
         alignment: CellAlignment.right,
-        width: '70px',
+        width: 70,
         formatter: (item) => (item as Employee).joinedYear.toString()
       ),
       NgdDataColumn(
@@ -123,7 +124,8 @@ class DemoComponent implements OnInit{
       NgdDataColumn(
         title: 'Joined Year',
         searchable: true,
-        filter: '2000'
+        filter: '2000',
+        width: 100
       ),
       NgdDataColumn(
         title: 'Employee Number',
