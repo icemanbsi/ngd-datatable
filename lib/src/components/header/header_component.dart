@@ -45,7 +45,7 @@ class NgdDataTableHeaderComponent {
   String getStyles(NgdDataColumn column){
     var _styles = '';
     if(column.width != null){
-      _styles += ' flex: 0; width: ' + column.width.toString() + 'px';
+      _styles += ' flex: none; width: ' + column.width.toString() + 'px';
     }
     else if(column.flexWidth != null){
       _styles += ' flex: ' + column.flexWidth.toString();
