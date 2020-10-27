@@ -1,3 +1,6 @@
+## 0.1.10+1
+- Updating dependencies
+
 ## 0.1.9+2
 - Bug fixing flex and column width
 

@@ -1,16 +1,16 @@
 name: ngd_datatable
 description: This plugin is made to display a data table on Angular Dart platform. Currently it support a simple data table with or without server processing.
-version: 0.1.9+2
+version: 0.1.10+1
 homepage: https://icemanbsi.github.io/ngd-datatable/
 
 environment:
   sdk: '>=2.7.0 <3.0.0'
 
 dependencies:
-  angular: ^5.3.0
-  angular_components: ^0.13.0
-  angular_router: ^2.0.0-alpha+19
-  intl: ^0.15.0
+  angular: ^6.0.1
+  angular_components: ^1.0.2
+  angular_router: ^2.0.0
+  intl: ^0.16.0
 
 dev_dependencies:
   angular_test: ^2.3.0
