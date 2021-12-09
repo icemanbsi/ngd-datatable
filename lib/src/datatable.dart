@@ -2,7 +2,6 @@ import 'dart:async';
 import 'dart:core';
 import 'dart:math';
 import 'package:angular/angular.dart';
-import 'package:angular/core.dart';
 
 import 'classes/column.dart';
 import 'components/body/body_component.dart';
