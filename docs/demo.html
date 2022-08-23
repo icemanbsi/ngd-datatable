@@ -1,246 +1,256 @@
 <div [attr.class]="'demo'">
-    <section>
-        <h1>ngd-datatable</h1>
-        <p>This plugin is made to display a data table on Angular Dart platform. Currently it support a simple data table with or without server processing.</p>
-    </section>
-    <section>
-        <h1 [attr.id]="'usage'">Usage</h1>
-        <h2>Columns [NgdDataColumn]</h2>
-        <p>This class is used to define a column and how you want to format the data. </p>
-        <table>
-            <thead>
-                <tr>
-                    <th>Attribute</th>
-                    <th>Type</th>
-                    <th>Usage</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>title</td>
-                    <td>String</td>
-                    <td>This attribute is used to define the column title.</td>
-                </tr>
-                <tr>
-                    <td>selector</td>
-                    <td>String</td>
-                    <td>This attribute is used as a key name from the map data. The default value is camel cased title.</td>
-                </tr>
-                <tr>
-                    <td>sort</td>
-                    <td>ColumnSort - Enum(none, normal, asc, desc)</td>
-                    <td>Define how you want to sort the data. The default value is none and it would not print the sorting icon on the header.</td>
-                </tr>
-                <tr>
-                    <td>formatter</td>
-                    <td>Function(dynamic)</td>
-                    <td>If you want to format the data before showing it on the table, you can use this function. The parameter of this function is not just a single data but the entire row data. With this function you can event process a list of non json object as the input of ngd_datatable.</td>
-                </tr>
-                <tr>
-                    <td>component</td>
-                    <td>ComponentFactory</td>
-                    <td>Sometimes you need to place a component instead of just a string. This attribute is allowing you to do so. It will ignore the formatter function the value is not null.</td>
-                </tr>
-                <tr>
-                    <td>initComponent</td>
-                    <td>Function(ComponentRef, dynamic)</td>
-                    <td>To initialize the component with some specific parameter, you can use this function.</td>
-                </tr>
-                <tr>
-                    <td>searchable</td>
-                    <td>bool</td>
-                    <td>Define if the column is searchable. Default value is false.</td>
-                </tr>
-                <tr>
-                    <td>filter</td>
-                    <td>String</td>
-                    <td>Filter value. Can be use to set default search value and get the current search value</td>
-                </tr>
-                <tr>
-                    <td>filterOptions</td>
-                    <td>Map&lt;String, String></td>
-                    <td>The default search column is input text. If you want to turn it into dropdown, you can use this attribute to set the options.</td>
-                </tr>
-                <tr>
-                    <td>alignment</td>
-                    <td>CellAlignment - Enum(left, center, right, justify)</td>
-                    <td>Set the cell alignment</td>
-                </tr>
-                <tr>
-                    <td>headerAlignment</td>
-                    <td>CellAlignment - Enum(left, center, right, justify)</td>
-                    <td>Set the header cell alignment</td>
-                </tr>
-                <tr>
-                    <td>width</td>
-                    <td>int</td>
-                    <td>Column width can be set by px. e.g. 50</td>
-                </tr>
-                <tr>
-                    <td>flexWidth</td>
-                    <td>int</td>
-                    <td>Column width can be set relatively using flex. The default value for each column is 1. If flexWidth used with width, the flexWidth would be ignored.</td>
-                </tr>
-            </tbody>
-        </table>
-        <h2>Data</h2>
-        <p>Data is based on json array</p>
-        <h2>Code sample</h2>
-        <h3>html</h3>
-        <pre>
+  <section>
+      <h1>ngd-datatable</h1>
+      <p>This plugin is made to display a data table on Angular Dart platform. Currently it support a simple data table with or without server processing.</p>
+  </section>
+  <section>
+      <h1 [attr.id]="'usage'">Usage</h1>
+      <h2>Columns [NgdDataColumn]</h2>
+      <p>This class is used to define a column and how you want to format the data. </p>
+      <table>
+          <thead>
+              <tr>
+                  <th>Attribute</th>
+                  <th>Type</th>
+                  <th>Usage</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr>
+                  <td>title</td>
+                  <td>String</td>
+                  <td>This attribute is used to define the column title.</td>
+              </tr>
+              <tr>
+                  <td>selector</td>
+                  <td>String</td>
+                  <td>This attribute is used as a key name from the map data. The default value is camel cased title.</td>
+              </tr>
+              <tr>
+                  <td>sort</td>
+                  <td>ColumnSort - Enum(none, normal, asc, desc)</td>
+                  <td>Define how you want to sort the data. The default value is none and it would not print the sorting icon on the header.</td>
+              </tr>
+              <tr>
+                  <td>formatter</td>
+                  <td>Function(dynamic)</td>
+                  <td>If you want to format the data before showing it on the table, you can use this function. The parameter of this function is not just a single data but the entire row data. With this function you can event process a list of non json object as the input of ngd_datatable.</td>
+              </tr>
+              <tr>
+                  <td>component</td>
+                  <td>ComponentFactory</td>
+                  <td>Sometimes you need to place a component instead of just a string. This attribute is allowing you to do so. It will ignore the formatter function the value is not null.</td>
+              </tr>
+              <tr>
+                  <td>initComponent</td>
+                  <td>Function(ComponentRef, dynamic)</td>
+                  <td>To initialize the component with some specific parameter, you can use this function.</td>
+              </tr>
+              <tr>
+                  <td>searchable</td>
+                  <td>bool</td>
+                  <td>Define if the column is searchable. Default value is false.</td>
+              </tr>
+              <tr>
+                  <td>filter</td>
+                  <td>String</td>
+                  <td>Filter value. Can be use to set default search value and get the current search value</td>
+              </tr>
+              <tr>
+                  <td>filterOptions</td>
+                  <td>Map&lt;String, String></td>
+                  <td>The default search column is input text. If you want to turn it into dropdown, you can use this attribute to set the options.</td>
+              </tr>
+              <tr>
+                  <td>alignment</td>
+                  <td>CellAlignment - Enum(left, center, right, justify)</td>
+                  <td>Set the cell alignment</td>
+              </tr>
+              <tr>
+                  <td>headerAlignment</td>
+                  <td>CellAlignment - Enum(left, center, right, justify)</td>
+                  <td>Set the header cell alignment</td>
+              </tr>
+              <tr>
+                  <td>width</td>
+                  <td>int</td>
+                  <td>Column width can be set by px. e.g. 50</td>
+              </tr>
+              <tr>
+                  <td>flexWidth</td>
+                  <td>int</td>
+                  <td>Column width can be set relatively using flex. The default value for each column is 1. If flexWidth used with width, the flexWidth would be ignored.</td>
+              </tr>
+              <tr>
+                <td>cellClass</td>
+                <td>String</td>
+                <td>Additional class(es) that you can attach to cell</td>
+              </tr>
+              <tr>
+                <td>headerClass</td>
+                <td>String</td>
+                <td>Additional class(es) that you can attach to header cell</td>
+              </tr>
+          </tbody>
+      </table>
+      <h2>Data</h2>
+      <p>Data is based on json array</p>
+      <h2>Code sample</h2>
+      <h3>html</h3>
+      <pre>
 &lt;ngd-datatable 
-    [columns]="columns" 
-    [data]="data"
-    >&lt;/ngd-datatable>
-        </pre>
-        <h3>dart</h3>
-        <pre>
+  [columns]="columns" 
+  [data]="data"
+  >&lt;/ngd-datatable>
+      </pre>
+      <h3>dart</h3>
+      <pre>
 List&lt;NgdDataColumn> columns = [
-    NgdDataColumn(
-        title: 'Employee Name',
-        sort: ColumnSort.normal
-    ),
-    NgdDataColumn(
-        title: 'Department',
-        sort: ColumnSort.normal
-    ),
-    NgdDataColumn(
-        title: 'Marital Status'
-    ),
-    NgdDataColumn(
-        title: 'Joined Year'
-    ),
-    NgdDataColumn(
-        title: 'Employee Number',
-        sort: ColumnSort.normal
-    ),
+  NgdDataColumn(
+      title: 'Employee Name',
+      sort: ColumnSort.normal
+  ),
+  NgdDataColumn(
+      title: 'Department',
+      sort: ColumnSort.normal
+  ),
+  NgdDataColumn(
+      title: 'Marital Status'
+  ),
+  NgdDataColumn(
+      title: 'Joined Year'
+  ),
+  NgdDataColumn(
+      title: 'Employee Number',
+      sort: ColumnSort.normal
+  ),
 ];
 List&lt;dynamic> data = [
-    {
-        "employeeName":"Emerson",
-        "department":"Payroll",
-        "maritalStatus":"Single",
-        "joinedYear":2019,
-        "employeeNumber":76123
-    },
-    {
-        "employeeName":"Tamara",
-        "department":"Customer Service",
-        "maritalStatus":"Married",
-        "joinedYear":2015,
-        "employeeNumber":93040
-    }
+  {
+      "employeeName":"Emerson",
+      "department":"Payroll",
+      "maritalStatus":"Single",
+      "joinedYear":2019,
+      "employeeNumber":76123
+  },
+  {
+      "employeeName":"Tamara",
+      "department":"Customer Service",
+      "maritalStatus":"Married",
+      "joinedYear":2015,
+      "employeeNumber":93040
+  }
 ];
-        </pre>
-    </section>
-    <section>
-        <h1>Attributes</h1>
-        <table>
-            <thead>
-                <tr>
-                    <th>Attribute</th>
-                    <th>Type</th>
-                    <th>Usage</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>[columns]</td>
-                    <td>List&lt;NgdDataColumn&gt;</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>[data]</td>
-                    <td>List&lt;dynamic&gt;</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>[count]</td>
-                    <td>int</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>[pageLimit]</td>
-                    <td>int</td>
-                    <td>default 25</td>
-                </tr>
-                <tr>
-                    <td>[externalProcessing]</td>
-                    <td>bool</td>
-                    <td>default false</td>
-                </tr>
-                <tr>
-                    <td>[loading]</td>
-                    <td>bool</td>
-                    <td>default false</td>
-                </tr>
-                <tr>
-                    <td>[(page)]</td>
-                    <td>int</td>
-                    <td>default 1</td>
-                </tr>
-                <tr>
-                    <td>(pageClick)</td>
-                    <td>Function(int page)</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>(sortClick)</td>
-                    <td>Function(NgdDataColumn column)</td>
-                    <td>This function would be called when a sortable header clicked and when initialize component with column = null if externalProcessing is false.</td>
-                </tr>
-                <tr>
-                    <td>(filterChange)</td>
-                    <td>Function(NgdDataColumn column)</td>
-                    <td>This function would be called when a searchable column filter changed and when initialize component with column = null if externalProcessing is false.</td>
-                </tr>
-            </tbody>
-        </table>
-    </section>
-    <section>
-        <h1>Examples</h1>
-        <h2 [attr.id]="'basic_table'">Basic Table</h2>
-        <p>Load all the data at once and let the ngd-datatable handle the pagination and sorting.</p>
-        <div [attr.class]="'table-wrapper'">
-            <ngd-datatable
-                [columns]="columns"
-                [data]="data"
-            ></ngd-datatable>
-        </div>
-        <br/>
-        <h2 [attr.id]="'external_processing'">Server Side Table</h2>
-        <p>Load page by page data and handle the pagination and sorting externally e.g. by api call.</p>
-        <div [attr.class]="'table-wrapper'">
-            <ngd-datatable
-                [columns]="serverSideColumns"
-                [data]="serverSideData"
-                [count]="serverSideDataLength"
-                [pageLimit]="pageLimit"
-                [externalProcessing]="true"
-                [loading]="isLoading"
-                [(page)]="page"
-                (pageClick)="pageClick"
-                (sortClick)="sortClick"
-            ></ngd-datatable>
-        </div>
-        <br/>
-        <h2 [attr.id]="'basic_table'">Basic Table with Object Data Type</h2>
-        <p>Load non JSON Object data type without formatting into JSON Object. In this example we are using List&lt;Employee> as the data</p>
-        <div [attr.class]="'table-wrapper'">
-            <ngd-datatable
-                [columns]="employeeColumns"
-                [data]="employeeData"
-                [pageLimit]="15"
-            ></ngd-datatable>
-        </div>
-        <h2 [attr.id]="'basic_table'">Basic Table with Column Filter</h2>
-        <p>Load all the data at once and let the ngd-datatable handle the pagination and sorting.</p>
-        <div [attr.class]="'table-wrapper'">
-            <ngd-datatable
-                [columns]="filterColumns"
-                [data]="data"
-            ></ngd-datatable>
-        </div>
-        <br/>
-    </section>
+      </pre>
+  </section>
+  <section>
+      <h1>Attributes</h1>
+      <table>
+          <thead>
+              <tr>
+                  <th>Attribute</th>
+                  <th>Type</th>
+                  <th>Usage</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr>
+                  <td>[columns]</td>
+                  <td>List&lt;NgdDataColumn&gt;</td>
+                  <td></td>
+              </tr>
+              <tr>
+                  <td>[data]</td>
+                  <td>List&lt;dynamic&gt;</td>
+                  <td></td>
+              </tr>
+              <tr>
+                  <td>[count]</td>
+                  <td>int</td>
+                  <td></td>
+              </tr>
+              <tr>
+                  <td>[pageLimit]</td>
+                  <td>int</td>
+                  <td>default 25</td>
+              </tr>
+              <tr>
+                  <td>[externalProcessing]</td>
+                  <td>bool</td>
+                  <td>default false</td>
+              </tr>
+              <tr>
+                  <td>[loading]</td>
+                  <td>bool</td>
+                  <td>default false</td>
+              </tr>
+              <tr>
+                  <td>[(page)]</td>
+                  <td>int</td>
+                  <td>default 1</td>
+              </tr>
+              <tr>
+                  <td>(pageClick)</td>
+                  <td>Function(int page)</td>
+                  <td></td>
+              </tr>
+              <tr>
+                  <td>(sortClick)</td>
+                  <td>Function(NgdDataColumn column)</td>
+                  <td>This function would be called when a sortable header clicked and when initialize component with column = null if externalProcessing is false.</td>
+              </tr>
+              <tr>
+                  <td>(filterChange)</td>
+                  <td>Function(NgdDataColumn column)</td>
+                  <td>This function would be called when a searchable column filter changed and when initialize component with column = null if externalProcessing is false.</td>
+              </tr>
+          </tbody>
+      </table>
+  </section>
+  <section>
+      <h1>Examples</h1>
+      <h2 [attr.id]="'basic_table'">Basic Table</h2>
+      <p>Load all the data at once and let the ngd-datatable handle the pagination and sorting.</p>
+      <div [attr.class]="'table-wrapper'">
+          <ngd-datatable
+              [columns]="columns"
+              [data]="data"
+          ></ngd-datatable>
+      </div>
+      <br/>
+      <h2 [attr.id]="'external_processing'">Server Side Table</h2>
+      <p>Load page by page data and handle the pagination and sorting externally e.g. by api call.</p>
+      <div [attr.class]="'table-wrapper'">
+          <ngd-datatable
+              [columns]="serverSideColumns"
+              [data]="serverSideData"
+              [count]="serverSideDataLength"
+              [pageLimit]="pageLimit"
+              [externalProcessing]="true"
+              [loading]="isLoading"
+              [(page)]="page"
+              (pageClick)="pageClick"
+              (sortClick)="sortClick"
+          ></ngd-datatable>
+      </div>
+      <br/>
+      <h2 [attr.id]="'basic_table'">Basic Table with Object Data Type</h2>
+      <p>Load non JSON Object data type without formatting into JSON Object. In this example we are using List&lt;Employee> as the data</p>
+      <div [attr.class]="'table-wrapper'">
+          <ngd-datatable
+              [columns]="employeeColumns"
+              [data]="employeeData"
+              [pageLimit]="15"
+          ></ngd-datatable>
+      </div>
+      <h2 [attr.id]="'basic_table'">Basic Table with Column Filter</h2>
+      <p>Load all the data at once and let the ngd-datatable handle the pagination and sorting.</p>
+      <div [attr.class]="'table-wrapper'">
+          <ngd-datatable
+              [columns]="filterColumns"
+              [data]="data"
+          ></ngd-datatable>
+      </div>
+      <br/>
+  </section>
 </div>
