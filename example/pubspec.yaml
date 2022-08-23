@@ -8,10 +8,6 @@ environment:
 
 dependencies:
   angular: ^7.0.2
-  angular_components:
-    git: 
-      url: https://github.com/angulardart-community/angular_components.git
-      path: angular_components
   angular_router: ^3.0.1
   ngd_datatable:
     path: ..
