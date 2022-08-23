@@ -10,6 +10,8 @@ class NgdDataColumn {
   ComponentFactory component;
   Function(ComponentRef, dynamic) initComponent;
   ColumnSort sort;
+  String cellClass;
+  String headerClass;
   bool searchable;
   String filter;
   Map<String, String> filterOptions;
@@ -29,6 +31,8 @@ class NgdDataColumn {
       {String title,
       String selector,
       ColumnSort sort = ColumnSort.none,
+      String cellClass,
+      String headerClass,
       String Function(dynamic) formatter,
       ComponentFactory component,
       Function(ComponentRef, dynamic) initComponent,
@@ -45,6 +49,8 @@ class NgdDataColumn {
     this.component = component;
     this.initComponent = initComponent;
     this.sort = sort;
+    this.cellClass = cellClass;
+    this.headerClass = headerClass;
     this.searchable = searchable;
     this.filter = filter;
     this.filterOptions = filterOptions;

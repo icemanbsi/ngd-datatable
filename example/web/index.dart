@@ -80,7 +80,9 @@ class DemoComponent implements OnInit{
         headerAlignment: CellAlignment.right,
         alignment: CellAlignment.right,
         width: 70,
-        formatter: (item) => (item as Employee).joinedYear.toString()
+        formatter: (item) => (item as Employee).joinedYear.toString(),
+        cellClass: 'customCellClass',
+        headerClass: 'customHeaderClass'
       ),
       NgdDataColumn(
         title: 'Employee Number',

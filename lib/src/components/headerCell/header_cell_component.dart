@@ -1,7 +1,6 @@
 import 'dart:async';
 import 'dart:core';
 import 'package:angular/angular.dart';
-import 'package:angular/core.dart';
 import '../../../ngd_datatable.dart';
 import '../../classes/column.dart';
 
@@ -26,7 +25,7 @@ class NgdDataTableHeaderCellComponent {
   int height;
 
   String get classes {
-    var _classes = 'th';
+    var _classes = (column.headerClass ?? '') + ' th';
     if (column.sort != ColumnSort.none) {
       _classes += ' sortable';
     }
