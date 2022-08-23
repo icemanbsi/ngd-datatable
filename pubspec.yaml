@@ -13,6 +13,7 @@ dependencies:
       url: https://github.com/angulardart-community/angular_components.git
       path: angular_components
   angular_router: ^3.0.1
+  intl: ^0.17.0
 
 dev_dependencies:
   angular_test: ^4.0.1
