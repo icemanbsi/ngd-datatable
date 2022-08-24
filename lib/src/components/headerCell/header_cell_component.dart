@@ -25,7 +25,7 @@ class NgdDataTableHeaderCellComponent {
   int height;
 
   String get classes {
-    var _classes = (column.headerClass ?? '') + ' th';
+    var _classes = 'th';
     if (column.sort != ColumnSort.none) {
       _classes += ' sortable';
     }

@@ -41,6 +41,10 @@ class NgdDataTableHeaderComponent {
     return result;
   }
 
+  String getClasses(NgdDataColumn column){
+    return column.headerClass ?? '';
+  }
+
   String getStyles(NgdDataColumn column){
     var _styles = '';
     if(column.width != null){

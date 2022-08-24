@@ -30,7 +30,7 @@ class NgdDataTableCellComponent implements OnInit {
   }
 
   String get classes {
-    var _classes = column.cellClass ?? '';
+    var _classes = '';
     switch (column.alignment) {
       case CellAlignment.left: _classes += ' text-left'; break;
       case CellAlignment.center: _classes += ' text-center'; break;

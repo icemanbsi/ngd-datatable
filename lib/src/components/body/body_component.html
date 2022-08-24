@@ -2,6 +2,7 @@
     *ngFor="let item of data">
     <ngd-datatable-cell 
         *ngFor="let column of columns"
+        [attr.class]="getClass(column)"
         [attr.style]="getStyles(column)"
         [column]="column"
         [item]="item">

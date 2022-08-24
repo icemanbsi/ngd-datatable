@@ -32,4 +32,8 @@ class NgdDataTableBodyComponent {
     }
     return _styles;
   }
+
+  String getClasses(NgdDataColumn column){
+    return column.cellClass ?? '';
+  }
 }

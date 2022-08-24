@@ -1,6 +1,7 @@
 <ngd-datatable-row>
     <ngd-datatable-header-cell 
         *ngFor="let column of columns"
+        [attr.class]="getClasses(column)"
         [attr.style]="getStyles(column)"
         [column]="column"
         [height]="height"
@@ -10,6 +11,7 @@
 <ngd-datatable-row *ngIf="isShowColumnFilter">
     <ngd-datatable-filter-cell 
         *ngFor="let column of columns"
+        [attr.class]="getClasses(column)"
         [attr.style]="getStyles(column)"
         [column]="column"
         [height]="height"
