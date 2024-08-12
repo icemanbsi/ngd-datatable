@@ -11,6 +11,8 @@ class NgdDataColumn {
   ComponentFactory? component;
   Function(ComponentRef, dynamic)? initComponent;
   ColumnSort sort;
+  String? cellClass;
+  String? headerClass;
   bool searchable;
   String filter;
   Map<String, String>? filterOptions;
@@ -30,6 +32,8 @@ class NgdDataColumn {
       this.title = '',
       String? selector,
       this.sort = ColumnSort.none,
+      this.cellClass,
+      this.headerClass,
       this.formatter,
       this.component,
       this.initComponent,
