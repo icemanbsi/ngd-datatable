@@ -15,13 +15,13 @@ import 'package:angular/angular.dart';
     ])
 class NgdDataTablePaginationComponent {
   @Input()
-  int numberOfData;
+  int numberOfData = 0;
 
   @Input()
-  int pageLimit;
+  int pageLimit = 0;
 
   @Input()
-  int currentPage;
+  int currentPage = 0;
 
   int get totalPages {
     return (numberOfData / pageLimit).ceil();

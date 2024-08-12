@@ -15,27 +15,27 @@ import '../../classes/column.dart';
     ])
 class NgdDataTableHeaderCellComponent {
   @Input()
-  NgdDataColumn column;
+  NgdDataColumn? column;
 
   @Output()
   Stream<NgdDataColumn> get sortChange => _onSortChange.stream;
   final _onSortChange = StreamController<NgdDataColumn>.broadcast();
 
   @Input()
-  int height;
+  int? height;
 
   String get classes {
     var _classes = 'th';
-    if (column.sort != ColumnSort.none) {
+    if (column?.sort != ColumnSort.none) {
       _classes += ' sortable';
     }
-    if (column.sort == ColumnSort.asc) {
+    if (column?.sort == ColumnSort.asc) {
       _classes += ' asc';
-    } else if (column.sort == ColumnSort.desc) {
+    } else if (column?.sort == ColumnSort.desc) {
       _classes += ' desc';
     }
 
-    switch (column.headerAlignment) {
+    switch (column?.headerAlignment) {
       case CellAlignment.left: _classes += ' text-left'; break;
       case CellAlignment.center: _classes += ' text-center'; break;
       case CellAlignment.right: _classes += ' text-right'; break;
@@ -55,15 +55,15 @@ class NgdDataTableHeaderCellComponent {
   }
 
   void headerClick() {
-    if (column.sort != ColumnSort.none) {
-      if (column.sort == ColumnSort.normal) {
-        column.sort = ColumnSort.asc;
-      } else if (column.sort == ColumnSort.asc) {
-        column.sort = ColumnSort.desc;
-      } else if (column.sort == ColumnSort.desc) {
-        column.sort = ColumnSort.normal;
+    if (column != null && column!.sort != ColumnSort.none) {
+      if (column?.sort == ColumnSort.normal) {
+        column?.sort = ColumnSort.asc;
+      } else if (column?.sort == ColumnSort.asc) {
+        column?.sort = ColumnSort.desc;
+      } else if (column?.sort == ColumnSort.desc) {
+        column?.sort = ColumnSort.normal;
       }
-      _onSortChange.add(column);
+      _onSortChange.add(column!);
     }
   }
 }

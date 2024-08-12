@@ -20,10 +20,10 @@ import '../filterCell/filter_cell_component.dart';
     ])
 class NgdDataTableHeaderComponent {
   @Input()
-  List<NgdDataColumn> columns;
+  List<NgdDataColumn> columns = [];
 
   @Input()
-  int height;
+  int? height;
 
   @Output()
   Stream<NgdDataColumn> get sortChange => _onSortChange.stream;

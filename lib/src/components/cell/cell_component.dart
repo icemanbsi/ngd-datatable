@@ -17,21 +17,21 @@ class NgdDataTableCellComponent implements OnInit {
   NgdDataTableCellComponent(this._loader);
 
   @Input()
-  NgdDataColumn column;
+  NgdDataColumn? column;
 
   @Input()
   dynamic item;
 
   @ViewChild('cell', read: ViewContainerRef)
-  ViewContainerRef cellElement;
+  ViewContainerRef? cellElement;
 
   String get formattedContent {
-    return column.getContent(item);
+    return column?.getContent(item) ?? '';
   }
 
   String get classes {
     var _classes = '';
-    switch (column.alignment) {
+    switch (column?.alignment) {
       case CellAlignment.left: _classes += ' text-left'; break;
       case CellAlignment.center: _classes += ' text-center'; break;
       case CellAlignment.right: _classes += ' text-right'; break;
@@ -43,10 +43,10 @@ class NgdDataTableCellComponent implements OnInit {
 
   @override
   void ngOnInit() {
-    if (column.component != null){
-      var componentRef = _loader.loadNextToLocation(column.component, cellElement);
-      if(column.initComponent != null){
-        column.initComponent(componentRef, item);
+    if (column?.component != null && cellElement != null){
+      var componentRef = _loader.loadNextToLocation(column!.component!, cellElement!);
+      if(column?.initComponent != null){
+        column?.initComponent!(componentRef, item);
       }
     }
   }

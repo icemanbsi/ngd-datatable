@@ -26,7 +26,7 @@ import 'components/wrapper/wrapper_component.dart';
     ])
 class NgdDataTableComponent {
   @Input()
-  List<NgdDataColumn> columns;
+  List<NgdDataColumn> columns = [];
 
   @Input()
   set data(List<dynamic> newData) {
@@ -39,8 +39,8 @@ class NgdDataTableComponent {
     }
   }
 
-  List<dynamic> _originalData;
-  List<dynamic> _data;
+  List<dynamic> _originalData = [];
+  List<dynamic> _data = [];
 
   @Input()
   int pageLimit = 25;
@@ -65,7 +65,7 @@ class NgdDataTableComponent {
   }
 
   int get count => _count ?? _data.length;
-  int _count;
+  int _count = 0;
 
   @Input()
   int headerHeight = 42;
@@ -139,7 +139,7 @@ class NgdDataTableComponent {
     _onSortChange.add(column);
   }
 
-  void colFilterChange(NgdDataColumn column) {
+  void colFilterChange(NgdDataColumn? column) {
     if (!externalProcessing) {
       _data = [];
       _originalData.forEach((data){
@@ -157,11 +157,13 @@ class NgdDataTableComponent {
       });
       sort();
     }
-    _onFilterChange.add(column);
+    if(column != null){
+      _onFilterChange.add(column);
+    }
   }
 
   void sort(){
-    NgdDataColumn column;
+    NgdDataColumn? column;
     columns.forEach((col) {
       if (col.sort == ColumnSort.asc || col.sort == ColumnSort.desc) {
         column = col;
@@ -169,10 +171,10 @@ class NgdDataTableComponent {
     });
     if (column != null) {
       _data.sort((a, b) {
-        if (column.sort == ColumnSort.asc) {
-          return column.getContent(a).compareTo(column.getContent(b));
+        if (column!.sort == ColumnSort.asc) {
+          return column!.getContent(a).compareTo(column!.getContent(b));
         } else {
-          return column.getContent(a).compareTo(column.getContent(b)) * -1;
+          return column!.getContent(a).compareTo(column!.getContent(b)) * -1;
         }
       });
     }

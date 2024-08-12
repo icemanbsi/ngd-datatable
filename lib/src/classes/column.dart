@@ -1,4 +1,5 @@
 import 'package:angular/angular.dart';
+import 'package:ngcomponents/utils/strings/string_utils.dart';
 
 enum ColumnSort { none, normal, asc, desc }
 enum CellAlignment { left, center, right, justify }
@@ -6,17 +7,17 @@ enum CellAlignment { left, center, right, justify }
 class NgdDataColumn {
   String title;
   String selector;
-  String Function(dynamic) formatter;
-  ComponentFactory component;
-  Function(ComponentRef, dynamic) initComponent;
+  String Function(dynamic)? formatter;
+  ComponentFactory? component;
+  Function(ComponentRef, dynamic)? initComponent;
   ColumnSort sort;
   bool searchable;
   String filter;
-  Map<String, String> filterOptions;
+  Map<String, String>? filterOptions;
   CellAlignment alignment;
   CellAlignment headerAlignment;
-  int width;
-  double flexWidth;
+  int? width;
+  double? flexWidth;
 
   @override
   bool operator ==(other) {
@@ -25,41 +26,28 @@ class NgdDataColumn {
         selector == other.selector;
   }
 
-  NgdDataColumn(
-      {String title,
-      String selector,
-      ColumnSort sort = ColumnSort.none,
-      String Function(dynamic) formatter,
-      ComponentFactory component,
-      Function(ComponentRef, dynamic) initComponent,
-      bool searchable = false,
-      String filter,
-      Map<String, String> filterOptions,
-      CellAlignment alignment,
-      CellAlignment headerAlignment,
-      int width,
-      double flexWidth}) {
-    this.title = title;
-    this.selector = selector;
-    this.formatter = formatter;
-    this.component = component;
-    this.initComponent = initComponent;
-    this.sort = sort;
-    this.searchable = searchable;
-    this.filter = filter;
-    this.filterOptions = filterOptions;
-    this.alignment = alignment;
-    this.headerAlignment = headerAlignment;
-    this.width = width;
-    this.flexWidth = flexWidth;
-
-    if (this.selector == null || this.selector.isEmpty) {
+  NgdDataColumn({
+      this.title = '',
+      String? selector,
+      this.sort = ColumnSort.none,
+      this.formatter,
+      this.component,
+      this.initComponent,
+      this.searchable = false,
+      this.filter = '',
+      this.filterOptions,
+      this.alignment = CellAlignment.left,
+      this.headerAlignment = CellAlignment.left,
+      this.width,
+      this.flexWidth
+  }) : this.selector = selector ?? '' {
+    if(selector == null){
       this.selector = toCamelCase(title);
     }
   }
 
   String toCamelCase(String text) {
-    String result;
+    String result = '';
     if (text != null) {
       var text_r = text.replaceAll('  ', ' ').split(' ');
       if (text_r.isNotEmpty) {
@@ -86,13 +74,13 @@ class NgdDataColumn {
     if (component == null){
       if (item is Map && item.containsKey(selector)) {
         if (formatter != null) {
-          return formatter(item);
+          return formatter!(item);
         } else {
           return item[selector].toString();
         }
       } else {
         if (formatter != null) {
-          return formatter(item);
+          return formatter!(item);
         } else {
           return '';
         }

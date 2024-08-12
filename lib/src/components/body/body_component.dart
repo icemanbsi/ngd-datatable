@@ -17,10 +17,10 @@ import '../cell/cell_component.dart';
     ])
 class NgdDataTableBodyComponent {
   @Input()
-  List<NgdDataColumn> columns;
+  List<NgdDataColumn> columns = [];
 
   @Input()
-  List<dynamic> data;
+  List<dynamic> data = [];
 
   String getStyles(NgdDataColumn column){
     var _styles = '';

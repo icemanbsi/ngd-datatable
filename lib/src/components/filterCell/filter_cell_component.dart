@@ -16,23 +16,25 @@ import '../../classes/column.dart';
     ])
 class NgdDataTableFilterCellComponent implements OnInit{
   @Input()
-  NgdDataColumn column;
+  NgdDataColumn? column;
 
   @Input()
-  int height;
+  int? height;
 
   @Output()
   Stream<NgdDataColumn> get filterChange => _onFilterChange.stream;
   final _onFilterChange = StreamController<NgdDataColumn>.broadcast();
 
   void onFilterChange(Event event){
-    if(column.filterOptions == null){
-      column.filter = (event.target as InputElement).value;
+    if(column != null){
+      if(column?.filterOptions == null){
+        column!.filter = (event.target as InputElement).value ?? '';
+      }
+      else{
+        column!.filter = (event.target as SelectElement).value ?? '';
+      }
+      _onFilterChange.add(column!);
     }
-    else{
-      column.filter = (event.target as SelectElement).value;
-    }
-    _onFilterChange.add(column);
   }
 
   @override
