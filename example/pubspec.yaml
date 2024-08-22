@@ -4,7 +4,7 @@ version: 0.1.0
 # homepage: https://icemanbsi.github.io
 
 environment:
-  sdk: '>=2.7.0 <3.0.0'
+  sdk: '>=3.0.0 <4.0.0'
 
 dependencies:
   ngd_datatable:
@@ -12,8 +12,8 @@ dependencies:
 
 dev_dependencies:
   angular_test: ^4.0.1
-  build_runner: ^2.1.5
-  build_test: ^2.1.4
-  build_web_compilers: ^3.2.1
+  build_runner: 
+  build_test: 
+  build_web_compilers:
   pedantic: ^1.8.0
-  test: ^1.6.0
+  test: 

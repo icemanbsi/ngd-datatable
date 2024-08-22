@@ -18,18 +18,18 @@ import 'index.template.dart' show DemoComponentNgFactory, ActionComponentNgFacto
   ]
 )
 class DemoComponent implements OnInit{
-  List<NgdDataColumn> columns;
-  List<NgdDataColumn> serverSideColumns;
-  List<NgdDataColumn> employeeColumns;
-  List<NgdDataColumn> filterColumns;
+  List<NgdDataColumn> columns = [];
+  List<NgdDataColumn> serverSideColumns = [];
+  List<NgdDataColumn> employeeColumns = [];
+  List<NgdDataColumn> filterColumns = [];
   List<dynamic> data = [];
   List<dynamic> serverSideData = [];
   List<Employee> employeeData = [];
   int serverSideDataLength = 0;
   int pageLimit = 15;
   int page = 1;
-  String sortCol;
-  ColumnSort sortDir;
+  String? sortCol;
+  ColumnSort? sortDir;
   bool isLoading = false;
 
   @override
@@ -217,11 +217,11 @@ void main() {
 }
 
 class Employee{
-  String name;
-  String department;
-  String maritalStatus;
-  int joinedYear;
-  String number;
+  String name = '';
+  String department = '';
+  String maritalStatus = '';
+  int joinedYear = 1970;
+  String number = '';
 
   Employee.fromJson(json){
     name = json['employeeName'];
