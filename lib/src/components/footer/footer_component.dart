@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'dart:core';
 import 'dart:math';
-import 'package:angular/angular.dart';
+import 'package:ngdart/angular.dart';
 import '../pagination/pagination_component.dart';
 import 'package:intl/intl.dart';
 

@@ -2,7 +2,7 @@ import 'dart:async';
 import 'dart:core';
 import 'dart:html';
 import 'dart:math';
-import 'package:angular/angular.dart';
+import 'package:ngdart/angular.dart';
 
 @Component(
     selector: 'ngd-datatable-pagination',

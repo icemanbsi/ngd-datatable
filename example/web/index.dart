@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'dart:html';
 import 'dart:math';
 
-import 'package:angular/angular.dart';
+import 'package:ngdart/angular.dart';
 import 'package:ngd_datatable/ngd_datatable.dart';
 
 // ignore: uri_has_not_been_generated 
