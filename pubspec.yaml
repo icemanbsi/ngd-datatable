@@ -7,16 +7,16 @@ environment:
   sdk: '>=3.0.0 <4.0.0'
 
 dependencies:
-  ngdart: ^7.1.1
-  ngcomponents:
-    git: 
-      url: https://github.com/icemanbsi/angular_components.git
-      path: ngcomponents
-      ref: dart3
-  ngrouter: ^3.1.1
+  ngdart: ^8.0.0-dev.4
+  ngcomponents: ^3.0.0-dev.1
+    # git: 
+    #   url: https://github.com/icemanbsi/angular_components.git
+    #   path: ngcomponents
+    #   ref: dart3
+  ngrouter: ^4.0.0-dev.3
 
 dev_dependencies:
-  ngtest: ^4.1.1
+  ngtest: 
   build_runner: 
   build_test: 
   build_web_compilers: 
