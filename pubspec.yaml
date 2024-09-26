@@ -8,11 +8,11 @@ environment:
 
 dependencies:
   ngdart: ^8.0.0-dev.4
-  ngcomponents: ^3.0.0-dev.1
-    # git: 
-    #   url: https://github.com/icemanbsi/angular_components.git
-    #   path: ngcomponents
-    #   ref: dart3
+  ngcomponents: #^3.0.0-dev.1
+    git: 
+      url: https://github.com/angulardart-community/angular_components.git
+      path: ngcomponents
+      ref: feature/dart3
   ngrouter: ^4.0.0-dev.3
 
 dev_dependencies:
