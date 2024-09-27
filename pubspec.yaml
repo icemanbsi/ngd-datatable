@@ -7,7 +7,7 @@ environment:
   sdk: '>=3.0.0 <4.0.0'
 
 dependencies:
-  ngdart: ^8.0.0-dev.4
+  ngdart: ^8.0.0-dev.1
   ngcomponents: #^3.0.0-dev.1
     git: 
       url: https://github.com/angulardart-community/angular_components.git
