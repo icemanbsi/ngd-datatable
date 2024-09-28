@@ -50,7 +50,7 @@ class NgdDataColumn {
     }
   }
 
-  String toCamelCase(String text) {
+  String toCamelCase(String? text) {
     String result = '';
     if (text != null) {
       var text_r = text.replaceAll('  ', ' ').split(' ');
