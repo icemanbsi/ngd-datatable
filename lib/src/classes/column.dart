@@ -14,7 +14,7 @@ class NgdDataColumn {
   String? cellClass;
   String? headerClass;
   bool searchable;
-  String filter;
+  String? filter;
   Map<String, String>? filterOptions;
   CellAlignment alignment;
   CellAlignment headerAlignment;
@@ -38,7 +38,7 @@ class NgdDataColumn {
       this.component,
       this.initComponent,
       this.searchable = false,
-      this.filter = '',
+      this.filter,
       this.filterOptions,
       this.alignment = CellAlignment.left,
       this.headerAlignment = CellAlignment.left,
