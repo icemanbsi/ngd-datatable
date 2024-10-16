@@ -65,7 +65,7 @@ class NgdDataTableComponent {
   }
 
   int get count => _count ?? _data.length;
-  int _count = 0;
+  int? _count = 0;
 
   @Input()
   int headerHeight = 42;
