@@ -5,6 +5,6 @@
 >
     <input *ngIf="column?.filterOptions == null" type="text" [value]="column?.filter" (change)="onFilterChange"/>
     <select *ngIf="column?.filterOptions != null" [value]="column?.filter" (change)="onFilterChange">
-        <option *ngFor="let key of column?.filterOptions!.keys" [value]="key">{{ column.filterOptions![key] }}</option>
+        <option *ngFor="let key of column?.filterOptions?.keys" [value]="key">{{ column.filterOptions?[key] }}</option>
     </select>
 </div>
