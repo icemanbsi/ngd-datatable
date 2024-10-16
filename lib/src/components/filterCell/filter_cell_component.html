@@ -1,10 +1,10 @@
 <div 
-    *ngIf="column.searchable"
+    *ngIf="column?.searchable ?? false"
     class="th" 
     [attr.style]="'height:' + height.toString() + 'px'"
 >
-    <input *ngIf="column.filterOptions == null" type="text" [value]="column.filter" (change)="onFilterChange"/>
-    <select *ngIf="column.filterOptions != null" [value]="column.filter" (change)="onFilterChange">
-        <option *ngFor="let key of column.filterOptions.keys" [value]="key">{{ column.filterOptions[key] }}</option>
+    <input *ngIf="column?.filterOptions == null" type="text" [value]="column?.filter" (change)="onFilterChange"/>
+    <select *ngIf="column?.filterOptions != null" [value]="column?.filter" (change)="onFilterChange">
+        <option *ngFor="let key of column?.filterOptions!.keys" [value]="key">{{ column.filterOptions![key] }}</option>
     </select>
 </div>

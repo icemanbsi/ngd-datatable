@@ -1,5 +1,4 @@
 import 'package:ngdart/angular.dart';
-import 'package:ngcomponents/utils/strings/string_utils.dart';
 
 enum ColumnSort { none, normal, asc, desc }
 enum CellAlignment { left, center, right, justify }

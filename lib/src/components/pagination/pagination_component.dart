@@ -15,16 +15,16 @@ import 'package:ngdart/angular.dart';
     ])
 class NgdDataTablePaginationComponent {
   @Input()
-  int numberOfData = 0;
+  int? numberOfData;
 
   @Input()
-  int pageLimit = 0;
+  int? pageLimit;
 
   @Input()
-  int currentPage = 0;
+  int? currentPage;
 
   int get totalPages {
-    return (numberOfData / pageLimit).ceil();
+    return ((numberOfData ?? 0) / (pageLimit ?? 1)).ceil();
   }
 
   @Output()
@@ -38,8 +38,8 @@ class NgdDataTablePaginationComponent {
         result.add(i);
       }
     } else {
-      var start = currentPage <= totalPages - 2
-          ? max(currentPage - 2, 1)
+      var start = (currentPage ?? 1) <= totalPages - 2
+          ? max((currentPage ?? 1) - 2, 1)
           : totalPages - 4;
       for (var i = start; i < start + 5; i++) {
         result.add(i);
@@ -53,11 +53,11 @@ class NgdDataTablePaginationComponent {
   }
 
   void prevClick(Event _) {
-    _onChange.add(max(currentPage - 1, 1));
+    _onChange.add(max((currentPage ?? 1) - 1, 1));
   }
 
   void nextClick(Event _) {
-    _onChange.add(min(currentPage + 1, totalPages));
+    _onChange.add(min((currentPage ?? 1) + 1, totalPages));
   }
 
   void lastClick(Event _) {

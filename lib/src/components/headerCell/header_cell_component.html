@@ -2,4 +2,4 @@
     [attr.class]="classes"
     [attr.style]="styles"
     (click)="headerClick"
-><span>{{ column.title }}</span></div>
+><span>{{ column?.title ?? '' }}</span></div>
