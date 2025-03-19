@@ -36,6 +36,10 @@ class DemoComponent implements OnInit{
   void ngOnInit() {
     columns = [
       NgdDataColumn(
+        title: 'Line',
+        asRowNumber: true
+      ),
+      NgdDataColumn(
         title: 'Employee Name',
         sort: ColumnSort.normal
       ),

@@ -1,5 +1,5 @@
 <ngd-datatable-row 
-    *ngFor="let item of data; index as i">
+    *ngFor="let item of data; let i=index">
     <ngd-datatable-cell 
         *ngFor="let column of columns"
         [attr.style]="getStyles(column)"
