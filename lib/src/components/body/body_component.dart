@@ -22,6 +22,12 @@ class NgdDataTableBodyComponent {
   @Input()
   List<dynamic> data = [];
 
+  @Input()
+  int page = 1;
+
+  @Input()
+  int pageLimit = 25;
+
   String getStyles(NgdDataColumn column){
     var _styles = '';
     if(column.width != null){

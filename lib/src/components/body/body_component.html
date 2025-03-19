@@ -1,8 +1,11 @@
 <ngd-datatable-row 
-    *ngFor="let item of data">
+    *ngFor="let item of data; index as i">
     <ngd-datatable-cell 
         *ngFor="let column of columns"
         [attr.style]="getStyles(column)"
+        [rowIndex]="i"
+        [page]="page"
+        [pageLimit]="pageLimit"
         [column]="column"
         [item]="item">
     </ngd-datatable-cell>

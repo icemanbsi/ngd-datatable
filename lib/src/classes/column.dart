@@ -13,6 +13,7 @@ class NgdDataColumn {
   String? cellClass;
   String? headerClass;
   bool searchable;
+  bool asRowNumber;
   String? filter;
   Map<String, String>? filterOptions;
   CellAlignment alignment;
@@ -37,6 +38,7 @@ class NgdDataColumn {
       this.component,
       this.initComponent,
       this.searchable = false,
+      this.asRowNumber = false,
       this.filter,
       this.filterOptions,
       this.alignment = CellAlignment.left,
@@ -73,8 +75,12 @@ class NgdDataColumn {
     return result;
   }
 
-  String getContent(dynamic item){
+  String getContent(dynamic item, int rowIndex, int page, int pageLimit) {
     if (component == null){
+      if(asRowNumber){
+        return (((page - 1) * pageLimit) + rowIndex + 1).toString() + '.';
+      }
+
       if (item is Map && item.containsKey(selector)) {
         if (formatter != null) {
           return formatter!(item);

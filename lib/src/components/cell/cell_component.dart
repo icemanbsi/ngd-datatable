@@ -22,11 +22,20 @@ class NgdDataTableCellComponent implements OnInit {
   @Input()
   dynamic item;
 
+  @Input()
+  int rowIndex = 0;
+
+  @Input()
+  int page = 1;
+
+  @Input()
+  int pageLimit = 25;
+
   @ViewChild('cell', read: ViewContainerRef)
   ViewContainerRef? cellElement;
 
   String get formattedContent {
-    return column?.getContent(item) ?? '';
+    return column?.getContent(item, rowIndex, page, pageLimit) ?? '';
   }
 
   String get classes {

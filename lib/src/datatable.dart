@@ -142,11 +142,12 @@ class NgdDataTableComponent {
   void colFilterChange(NgdDataColumn? column) {
     if (!externalProcessing) {
       _data = [];
+      int rowIndex = 0;
       _originalData.forEach((data){
         var isMatch = true;
         columns.forEach((col) {
           if(col.searchable && col.filter != null && col.filter!.isNotEmpty){
-            if(!col.getContent(data).toLowerCase().contains(col.filter!.toLowerCase())){
+            if(!col.getContent(data, rowIndex, page, pageLimit).toLowerCase().contains(col.filter!.toLowerCase())){
               isMatch = false;
             }
           }
@@ -154,6 +155,7 @@ class NgdDataTableComponent {
         if(isMatch){
           _data.add(data);
         }
+        rowIndex++;
       });
       sort();
     }
@@ -172,9 +174,9 @@ class NgdDataTableComponent {
     if (column != null) {
       _data.sort((a, b) {
         if (column!.sort == ColumnSort.asc) {
-          return column!.getContent(a).compareTo(column!.getContent(b));
+          return column!.getContent(a, 0, 0, 0).compareTo(column!.getContent(b, 0, 0, 0));
         } else {
-          return column!.getContent(a).compareTo(column!.getContent(b)) * -1;
+          return column!.getContent(a, 0, 0, 0).compareTo(column!.getContent(b, 0, 0, 0)) * -1;
         }
       });
     }
